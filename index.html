@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Varela+Round&display=swap" rel="stylesheet">
+
+    <title>Testing Location</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Varela Round', sans-serif;
+
+    }
+
+    #Loc {
+        font-family: 'Varela Round', sans-serif;
+    }
+    button{
+        height: 50px;
+        width: 150px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(8, 81, 252);
+        color: white;
+        margin: 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>My GeoLocation</h1>
+
+        <button onclick="initloc()">Get LOC</button>
+        <div id="Loc"></div>
+    
+    
+    </div>
+    
+
+    <script>
+        function initloc() {
+
+            let x = document.querySelector('#Loc');
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+
+            function showPosition(position) {
+                x.innerHTML = `Latitude of my location is ${position.coords.latitude} <br>`;
+                x.innerHTML += `longitude of my location is ${position.coords.longitude}`;
+            }
+
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</body>
+
+</html>
